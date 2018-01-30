@@ -1,11 +1,11 @@
-# Database_design
+# Database design
 
 
 ## users table
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add_index nique: true|
+|name|string|null: false, add_index unique: true|
 |email|text|null: false, add_index unique: true|
 
 ### Association
@@ -13,16 +13,18 @@
 - has_many :members
 
 
+
 ## groups table
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add_index nique: true|
+|name|string|null: false, add_index unique: true|
 
 ### Association
 - has_many :users, through: :members
 - has_many :members
 - accepts_nested_attributes_for :members
+
 
 
 ## members table
@@ -35,6 +37,7 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+
 
 
 ## messages table
@@ -51,7 +54,10 @@
 - belongs_to :user
 
 
+
+
 README
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
