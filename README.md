@@ -45,7 +45,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text||
+|text|text||
 |image|string||
 |group_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
