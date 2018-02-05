@@ -4,6 +4,10 @@
 
 @import "./config/variable";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
 html, body {
   height: 100%;
 }
@@ -40,9 +44,19 @@ html, body {
     font-size: 16px;
     height: 1em;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    top: 35px;
+  }
+   .account-setting {
+    height: 1em;
+    position: absolute;
+    top: 35px;
+    right: 20px;
+  }
+  .group-edit {
+    height: 1em;
+    position: absolute;
+    top: 35px;
+    right: 40px;
   }
 }
 
