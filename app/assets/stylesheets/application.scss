@@ -12,7 +12,7 @@ html, body {
   height: 100%;
 }
 
-.infomation-banner {
+.infomationBanner {
   background-color: #38AEF0;
   color: $whiteTextColor;
   text-align: center;
@@ -21,13 +21,13 @@ html, body {
 .content {
   height: 100%;
   @include clearfix();
-  .side-content {
+  &__side {
    width: 300px;
    height: 100%;
    float: left;
    color: $whiteTextColor;
   }
-  .main-content {
+  &__main {
    width: calc(100% - 300px);
    height: 100%;
    float: right;
@@ -35,25 +35,25 @@ html, body {
   }
 }
 
-.mystatus {
+.myStatus {
   height: 100px;
   background-color: #253141;
   padding: 0 20px;
   position: relative;
-  .user-name {
+  &__userName {
     font-size: 16px;
     font-weight: 700;
     height: 1em;
     position: absolute;
     top: 35px;
   }
-   .account-setting {
+  &__editAccount {
     height: 1em;
     position: absolute;
     top: 35px;
     right: 20px;
   }
-  .group-edit {
+  &__createGroup {
     height: 1em;
     position: absolute;
     top: 35px;
@@ -61,18 +61,18 @@ html, body {
   }
 }
 
-.group-list-container {
+.group {
   height: calc(100% - 100px);
   background-color: #2f3e51;
   padding: 20px 20px 0 20px;
-  .group {
+  &__list {
     list-style-type: none;
-    &__list {
+    &__item {
       display: block;
-      .group-name {
+      &__groupName {
         font-size: 15px;
       }
-      .latest-message {
+      &__latestMessage {
         font-size: 11px;
         margin-top: 5px;
         margin-bottom: 40px;

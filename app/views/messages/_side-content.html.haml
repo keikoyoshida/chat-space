@@ -1,13 +1,13 @@
-%div.mystatus
-  %p.user-name aaa
-  = icon('edit', class: 'group-edit')
-  = icon('cog', class: 'account-setting')
-%div.group-list-container
-  %ul.group
-  %li.group__list
-    %p.group-name bbb
-    %p.latest-message ccc
-  %li.group__list
-    %p.group-name bbb
-    %p.latest-message ccc
+%div.myStatus
+  %div.myStatus__userName aaa
+  = icon('edit', class: 'myStatus__createGroup')
+  = icon('cog', class: 'myStatus__editAccount')
+%div.group
+  %ul.group__list
+    %li.group__list__item
+      %div.group__list__item__groupName bbb
+      %div.group__list__item__latestMessage ccc
+    %li.group__list__item
+      %div.group__list__item__groupName bbb
+      %div.group__list__item__latestMessage ccc
 
