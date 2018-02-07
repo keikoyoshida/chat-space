@@ -13,13 +13,15 @@ html, body {
 }
 
 .infomationBanner {
+  font-size: 16px;
+  height: 25px;
   background-color: $blueColor;
   color: $whiteTextColor;
   text-align: center;
 }
 
 .content {
-  height: 100%;
+  height: calc(100% - 25px);
   @include clearfix();
   &__side {
    width: 300px;
@@ -31,7 +33,8 @@ html, body {
    width: calc(100% - 300px);
    height: 100%;
    float: right;
-   background-color: pink;
+   height: 100%;
+   position: relative;
   }
 }
 
@@ -62,11 +65,13 @@ html, body {
 }
 
 .groups {
+
   height: calc(100% - 100px);
   background-color: #2f3e51;
-  padding: 20px 20px 0 20px;
+  padding: 0 20px;
   &__list {
     list-style-type: none;
+    padding-top: 20px;
     &__item {
       display: block;
       &__groupName {
@@ -75,24 +80,28 @@ html, body {
       &__latestMessage {
         font-size: 11px;
         margin-top: 5px;
-        margin-bottom: 40px;
+        padding-bottom: 40px;
       }
     }
   }
 }
 
 .groupHeader {
-  padding: 35px 40px 0 40px;
+  height: 100px;
+  padding: 0 40px;
   border-bottom: 1px solid #eeeeee;
   position: relative;
   &__groupName{
     font-size: 20px;
-    color: #333333
+    color: #333333;
+    position: absolute;
+    top: 35px;
   }
   &__groupMember{
     font-size: 12px;
     color: $grayTextColor;
-    margin-top: 15px;
+    position: absolute;
+    top: 35 + 20 + 15px;
   }
   a {
     color: $blueColor;
@@ -100,7 +109,7 @@ html, body {
     line-height: 40px;
     padding: 0 20px;
     position: absolute;
-    top: 25px;
+    top: 28px;
     right: 40px;
     text-decoration: none;
     border: 1px solid $blueColor;
@@ -112,6 +121,7 @@ html, body {
 }
 
 .messages {
+  height: calc(100%-100-90);
   padding: 46px 40px 0 40px;
   &__list {
     &__userName{
@@ -134,4 +144,67 @@ html, body {
     }
   }
 }
+
+.submit {
+  width: 100%;
+  height: 92px;
+  position: absolute;
+  bottom: 0;
+  background-color: $grayColor;
+    &__form {
+      @include clearfix();
+      padding: 20px 0;
+      width: 100%;
+      &__inputArea {
+        float: left;
+        margin-left: 40px;
+        @include clearfix();
+        width: calc(100% - 201px);
+        background-color: #FFF;
+        position: relative;
+        input {
+          color: $blackTextColor;
+          font-size: 16px;
+          height: 50px;
+          width: calc(100% - 60px);
+          border: none;
+          padding: 0 10px;
+          background-image: '\f03e';
+          font-family: FontAwesome;
+          // float: left;
+          // border: 1px solid black;
+          // &__addImage {
+          // height: 1em;
+          // position: absolute;
+          // right: 0;
+          // }
+        }
+        &__image {
+          // float: right;
+          color: $blackTextColor;
+          position: absolute;
+          top: 17px;
+          right: 10px;
+        }
+      }
+      &__sendButton {
+        float: right;
+        padding-right: 40px;
+        input {
+          color: $whiteTextColor;
+          font-size: 16px;
+          display: inline-block;
+          line-height: 50px;
+          padding: 0 30px;
+          background-color: $blueColor;
+          border: 1px solid $blueColor;
+        }
+      }
+    }
+}
+
+// .submit height: 92px; 90px + 2px
+// &__inputArea width: calc(100% - 201px); 100px + 40*2px + 15px + 2*3px
+// &__image top: 17px; (50-16)/2
+
 
