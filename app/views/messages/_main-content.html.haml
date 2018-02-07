@@ -1,7 +1,7 @@
 %div.groupHeader
   %div.groupHeader__groupName aaa
   %div.groupHeader__groupMember bbb
-  %a edit
+  %a Edit
 %div.messages
   %div.messages__list
     %div.messages__list__userName aaa
@@ -17,5 +17,14 @@
     %div.messages__list__sentTime bbb
     %div.messages__list__message ccc
 %div.submit
-  / =form?  .submit__message
-  / =form?  .submit__button
+  %form.submit__form
+    %div.submit__form__inputArea
+      %input{type: "text", placeholder: "Type a message" }
+      = icon('image', class: 'submit__form__inputArea__image')
+    / %div.submit__form__image
+
+    %div.submit__form__sendButton
+      %input{ type: "submit", value: "Send" }
+  / = form_for("", method: :post) do
+
+
