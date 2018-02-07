@@ -103,7 +103,7 @@ html, body {
     position: absolute;
     top: 35 + 20 + 15px;
   }
-  a {
+  &__groupEdit a {
     color: $blueColor;
     display: inline-block;
     line-height: 40px;
