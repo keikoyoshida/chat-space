@@ -30,7 +30,7 @@ html, body {
 
 .myStatus {
   height: 100px;
-  background-color: #253141;
+  background-color: $darkerblueColor;
   padding: 0 20px;
   position: relative;
   &__userName {
@@ -55,9 +55,8 @@ html, body {
 }
 
 .groups {
-
   height: calc(100% - 100px);
-  background-color: #2f3e51;
+  background-color: $darkblueColor;
   padding: 0 20px;
   &__list {
     list-style-type: none;
@@ -79,11 +78,11 @@ html, body {
 .groupHeader {
   height: 100px;
   padding: 0 40px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid $borderColor;
   position: relative;
   &__groupName{
     font-size: 20px;
-    color: #333333;
+    color: $blackTextColorForGroup;
     position: absolute;
     top: 35px;
   }
