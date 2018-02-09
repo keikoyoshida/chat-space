@@ -1,7 +1,7 @@
 .myStatus
   .myStatus__userName aaa
-  = icon('edit', class: 'myStatus__createGroup')
-  = icon('cog', class: 'myStatus__editAccount')
+  %i.fa.fa-edit.myStatus__createGroup
+  %i.fa.fa-cog.myStatus__editAccount
 .groups
   %ul.groups__list
     %li.groups__list__item
@@ -10,4 +10,3 @@
     %li.groups__list__item
       .groups__list__item__groupName bbb
       .groups__list__item__latestMessage ccc
-

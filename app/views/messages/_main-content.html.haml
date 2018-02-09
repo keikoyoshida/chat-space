@@ -21,9 +21,6 @@
   %form.submit__form
     .submit__form__inputArea
       %input{type: "text", placeholder: "Type a message" }
-      = icon('image', class: 'submit__form__inputArea__image')
+      %i.fa.fa-image.submit__form__inputArea__image
     .submit__form__sendButton
       %input{ type: "submit", value: "Send" }
-  / = form_for("", method: :post) do
-
-
