@@ -5,18 +5,7 @@
     = link_to 'Edit', ''
 .messages
   .messages__list
-    .messages__list__userName aaa
-    .messages__list__sentTime bbb
-    .messages__list__message ccc
-    .messages__list__userName aaa
-    .messages__list__sentTime bbb
-    .messages__list__message ccc
-    .messages__list__userName aaa
-    .messages__list__sentTime bbb
-    .messages__list__message ccc
-    .messages__list__userName aaa
-    .messages__list__sentTime bbb
-    .messages__list__message ccc
+    = render partial: "messages"
 .submit
   %form.submit__form
     .submit__form__inputArea
