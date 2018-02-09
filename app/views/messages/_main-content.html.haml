@@ -1,30 +1,28 @@
-%div.groupHeader
-  %div.groupHeader__groupName aaa
-  %div.groupHeader__groupMember bbb
-  %div.groupHeader__groupEdit
+.groupHeader
+  .groupHeader__groupName aaa
+  .groupHeader__groupMember bbb
+  .groupHeader__groupEdit
     = link_to 'Edit', ''
-%div.messages
-  %div.messages__list
-    %div.messages__list__userName aaa
-    %div.messages__list__sentTime bbb
-    %div.messages__list__message ccc
-    %div.messages__list__userName aaa
-    %div.messages__list__sentTime bbb
-    %div.messages__list__message ccc
-    %div.messages__list__userName aaa
-    %div.messages__list__sentTime bbb
-    %div.messages__list__message ccc
-    %div.messages__list__userName aaa
-    %div.messages__list__sentTime bbb
-    %div.messages__list__message ccc
-%div.submit
+.messages
+  .messages__list
+    .messages__list__userName aaa
+    .messages__list__sentTime bbb
+    .messages__list__message ccc
+    .messages__list__userName aaa
+    .messages__list__sentTime bbb
+    .messages__list__message ccc
+    .messages__list__userName aaa
+    .messages__list__sentTime bbb
+    .messages__list__message ccc
+    .messages__list__userName aaa
+    .messages__list__sentTime bbb
+    .messages__list__message ccc
+.submit
   %form.submit__form
-    %div.submit__form__inputArea
+    .submit__form__inputArea
       %input{type: "text", placeholder: "Type a message" }
       = icon('image', class: 'submit__form__inputArea__image')
-    / %div.submit__form__image
-
-    %div.submit__form__sendButton
+    .submit__form__sendButton
       %input{ type: "submit", value: "Send" }
   / = form_for("", method: :post) do
 
