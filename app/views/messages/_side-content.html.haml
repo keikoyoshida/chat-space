@@ -1,7 +1,7 @@
 .myStatus
   .myStatus__userName aaa
-  %i.fa.fa-edit.myStatus__createGroup
-  %i.fa.fa-cog.myStatus__editAccount
+  = link_to(content_tag(:i, '', class: 'fa fa-edit myStatus__createGroup'), '')
+  = link_to(content_tag(:i, '', class: 'fa fa-cog myStatus__editAccount'), '')
 .groups
   %ul.groups__list
     %li.groups__list__item
