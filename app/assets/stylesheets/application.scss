@@ -1,6 +1,8 @@
-@import "./reset";
-@import "./mixin/clearfix";
-@import "./config/variable";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "./style";
+@import "config/reset";
+@import "config/variable";
+@import "mixin/clearfix";
+@import "modules/index";
+@import "modules/user";
+@import "modules/flash";
