@@ -9,9 +9,11 @@
 |email|text|null: false, add_index unique: true|
 
 ### Association
-- has_many :groups, through: :members
-- has_many :members
+- has_many :groups, through: :group_user
+- has_many :group_users
 - has_many :messages
+
+validates :name, email, presence: true
 
 
 
@@ -22,13 +24,15 @@
 |name|string|null: false, add_index unique: true|
 
 ### Association
-- has_many :users, through: :members
-- has_many :members
-- accepts_nested_attributes_for :members
+- has_many :users, through: :group_user
+- has_many :group_users
+- accepts_nested_attributes_for :group_user
 - has_many :messages
 
+validates :name, presence: true
 
-## members table
+
+## group_user table
 
 |Column|Type|Options|
 |------|----|-------|
