@@ -57,3 +57,7 @@ gem "haml-rails", "~> 1.0"
 gem 'font-awesome-sass', '~> 4.7.0'
 
 gem 'devise'
+
+group :development, :test do
+  gem 'pry-rails'
+end
