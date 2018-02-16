@@ -1,11 +1,12 @@
 .chat-group-form
   %h1 新規チャットグループ
   = form_for @group, html: {id: 'new_chat_group.new_chat_group'} do |f|
-    .chat-group-form__errors
-      %h2
-        1件のエラーが発生しました。
+    - if @group.errors.any?
+      .chat-group-form__errors
+        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました。"
         %ul
-          %li エラーです
+          - @group.errors.full_messages.each do |message|
+            %li= message
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label "グループ名", class: "chat-group-form__label", for: "chat_group_name"
@@ -28,8 +29,7 @@
         = f.label "チャットメンバー", class: "chat-group-form__label", for: "chat_group_チャットメンバー"
       .chat-group-form__field--right
         / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
-        = collection_check_boxes(:post, :user_ids, User.all, :id, :name) do |b|
-          = b.label {b.check_box + b.text}
+        = f.collection_check_boxes :user_ids, User.all, :id, :name
         / <%= collection_check_boxes(:post, :author_ids, Author.all, :id, :name) do |b| %>
         / <%= b.label { b.check_box + b.text } %>
         /         <%= form_for(@post) do |f| %>
@@ -53,5 +53,5 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        = f.submit "Save", class: "chat-group-form__action-btn","data-disable-with" => "Save", name: nil
+        = f.submit "Save", class: "chat-group-form__action-btn", "data-disable-with" => "Save", name: nil
         / %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
