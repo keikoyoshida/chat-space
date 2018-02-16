@@ -13,11 +13,18 @@ class GroupsController < ApplicationController
     end
   end
 
-  # def edit
-  # end
+  def edit
+    @group = Group.find(params[:id])
+  end
 
-  # def update
-  # end
+  def update
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to root_path, notice: 'グループを編集しました'
+    else
+      render :new
+    end
+  end
 
   private
 
