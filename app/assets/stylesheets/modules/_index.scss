@@ -55,6 +55,10 @@ html, body {
   &__list {
     list-style-type: none;
     padding-top: 20px;
+    a {
+      text-decoration: none;
+      color: $whiteTextColor;
+    }
     &__item {
       display: block;
       &__groupName {
