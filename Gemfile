@@ -61,3 +61,6 @@ gem 'devise'
 group :development, :test do
   gem 'pry-rails'
 end
+
+gem 'carrierwave', '~> 1.0'
+
