@@ -3,7 +3,7 @@ html, body {
 }
 
 .content {
-  height: calc(100% - 25px);
+  height: 100%;
   @include clearfix();
   &__side {
    width: 300px;
@@ -137,48 +137,51 @@ html, body {
   position: absolute;
   bottom: 0;
   background-color: $grayColor;
-    &__form {
+  &__form {
+    @include clearfix();
+    padding: 20px 0;
+    width: 100%;
+    &__inputArea {
+      float: left;
+      margin-left: 40px;
       @include clearfix();
-      padding: 20px 0;
-      width: 100%;
-      &__inputArea {
-        float: left;
-        margin-left: 40px;
-        @include clearfix();
-        width: calc(100% - 201px);
-        background-color: #FFF;
-        position: relative;
-        input {
-          color: $blackTextColor;
-          font-size: 16px;
-          height: 50px;
-          width: calc(100% - 60px);
-          border: none;
-          padding: 0 10px;
-          background-image: '\f03e';
-          font-family: FontAwesome;
-        }
-        &__image {
-          color: $blackTextColor;
-          position: absolute;
-          top: 17px;
-          right: 10px;
-        }
+      width: calc(100% - 201px);
+      background-color: #FFF;
+      position: relative;
+      &__text {
+        color: $blackTextColor;
+        font-size: 16px;
+        height: 50px;
+        width: calc(100% - 60px);
+        border: none;
+        padding: 0 10px;
+        background-image: '\f03e';
+        font-family: FontAwesome;
       }
-      &__sendButton {
-        float: right;
-        padding-right: 40px;
+      &__image {
+        color: $blackTextColor;
+        position: absolute;
+        top: 17px;
+        right: 10px;
         input {
-          color: $whiteTextColor;
-          font-size: 16px;
-          display: inline-block;
-          line-height: 50px;
-          padding: 0 30px;
-          background-color: $blueColor;
-          border: 1px solid $blueColor;
+           display: none;
         }
       }
     }
+    &__sendButton {
+      float: right;
+      padding-right: 40px;
+      input {
+        color: $whiteTextColor;
+        font-size: 16px;
+        display: inline-block;
+        line-height: 50px;
+        padding: 0 30px;
+        background-color: $blueColor;
+        border: 1px solid $blueColor;
+      }
+    }
+  }
 }
 
 // .submit height: 92px; 90px + 2px
