@@ -4,8 +4,7 @@
   .groupHeader__groupEdit
     = link_to 'Edit', ''
 .messages
-  .messages__list
-    = render partial: "messages/messages", locals: { messages: @messages }
+  = render @messages
 .submit
   .submit__form
     = form_for [@group, @message], multipart: true do |f|
