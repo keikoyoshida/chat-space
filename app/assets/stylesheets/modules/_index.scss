@@ -3,7 +3,7 @@ html, body {
 }
 
 .content {
-  height: calc(100% - 25px);
+  height: 100%;
   @include clearfix();
   &__side {
    width: 300px;
@@ -78,6 +78,7 @@ html, body {
   padding: 0 40px;
   border-bottom: 1px solid $borderColor;
   position: relative;
+  top: 0;
   &__groupName{
     font-size: 20px;
     color: $blackTextColorForGroup;
@@ -109,7 +110,11 @@ html, body {
 
 .messages {
   height: calc(100% - 100px - 90px);
-  padding: 46px 40px 0 40px;
+  padding: 46px 40px 0;
+  overflow:scroll;
+  &__item {
+    padding-bottom: 40px;
+  }
 }
 
 .userName{
@@ -117,6 +122,7 @@ html, body {
   font-weight: 700;
   color: $blackTextColor;
   float: left;
+  margin-bottom: 10px;
 }
 .sentTime {
   font-size: 12px;
@@ -124,12 +130,17 @@ html, body {
   float: left;
   margin: 5px 0 0 10px;
 }
-.message {
+.text {
   font-size: 14px;
   color: $blackTextColor;
   clear: both;
-  margin: 10px 0 40px;
+  margin-top: 10px;
 }
+.image {
+  clear: both;
+  margin-top: 10px;
+}
+
 
 .submit {
   width: 100%;
@@ -137,48 +148,51 @@ html, body {
   position: absolute;
   bottom: 0;
   background-color: $grayColor;
-    &__form {
+  &__form {
+    @include clearfix();
+    padding: 20px 0;
+    width: 100%;
+    &__inputArea {
+      float: left;
+      margin-left: 40px;
       @include clearfix();
-      padding: 20px 0;
-      width: 100%;
-      &__inputArea {
-        float: left;
-        margin-left: 40px;
-        @include clearfix();
-        width: calc(100% - 201px);
-        background-color: #FFF;
-        position: relative;
-        input {
-          color: $blackTextColor;
-          font-size: 16px;
-          height: 50px;
-          width: calc(100% - 60px);
-          border: none;
-          padding: 0 10px;
-          background-image: '\f03e';
-          font-family: FontAwesome;
-        }
-        &__image {
-          color: $blackTextColor;
-          position: absolute;
-          top: 17px;
-          right: 10px;
-        }
+      width: calc(100% - 201px);
+      background-color: #FFF;
+      position: relative;
+      &__text {
+        color: $blackTextColor;
+        font-size: 16px;
+        height: 50px;
+        width: calc(100% - 60px);
+        border: none;
+        padding: 0 10px;
+        background-image: '\f03e';
+        font-family: FontAwesome;
       }
-      &__sendButton {
-        float: right;
-        padding-right: 40px;
+      &__image {
+        color: $blackTextColor;
+        position: absolute;
+        top: 17px;
+        right: 10px;
         input {
-          color: $whiteTextColor;
-          font-size: 16px;
-          display: inline-block;
-          line-height: 50px;
-          padding: 0 30px;
-          background-color: $blueColor;
-          border: 1px solid $blueColor;
+           display: none;
         }
       }
     }
+    &__sendButton {
+      float: right;
+      padding-right: 40px;
+      input {
+        color: $whiteTextColor;
+        font-size: 16px;
+        display: inline-block;
+        line-height: 50px;
+        padding: 0 30px;
+        background-color: $blueColor;
+        border: 1px solid $blueColor;
+      }
+    }
+  }
 }
 
 // .submit height: 92px; 90px + 2px

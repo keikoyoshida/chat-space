@@ -1,15 +1,22 @@
 .groupHeader
-  .groupHeader__groupName aaa
-  .groupHeader__groupMember bbb
+  .groupHeader__groupName
+    = @group.name
+  .groupHeader__groupMember
+    Member :
+    - @group.users.each do |user|
+      = user.name
   .groupHeader__groupEdit
     = link_to 'Edit', ''
 .messages
-  .messages__list
-    = render partial: "messages/messages"
+  = render @messages
 .submit
-  %form.submit__form
-    .submit__form__inputArea
-      %input{type: "text", placeholder: "Type a message" }
-      = link_to(content_tag(:i, '', class: 'fa fa-image submit__form__inputArea__image'), '')
-    .submit__form__sendButton
-      %input{ type: "submit", value: "Send" }
+  .submit__form
+    = form_for [@group, @message], multipart: true do |f|
+      .submit__form__inputArea
+        = f.text_field :text, class: 'submit__form__inputArea__text', placeholder: "Type a message"
+        .submit__form__inputArea__image
+          = f.label :image do
+            = icon('image')
+            = f.file_field :image
+      .submit__form__sendButton
+        = f.submit 'Send'
