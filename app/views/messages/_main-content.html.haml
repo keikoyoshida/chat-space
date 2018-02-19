@@ -1,6 +1,10 @@
 .groupHeader
-  .groupHeader__groupName aaa
-  .groupHeader__groupMember bbb
+  .groupHeader__groupName
+    = @group.name
+  .groupHeader__groupMember
+    Member :
+    - @group.users.each do |user|
+      = user.name
   .groupHeader__groupEdit
     = link_to 'Edit', ''
 .messages
