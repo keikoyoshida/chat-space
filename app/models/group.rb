@@ -8,7 +8,7 @@ class Group < ApplicationRecord
 
   def show_last_message
     if (last_message = messages.last).present?
-      last_message.text.present? ? last_message.text : '画像が投稿されています'
+      last_message.text? ? last_message.text : '画像が投稿されています'
     else
       'まだメッセージはありません。'
     end
