@@ -34,8 +34,8 @@ $(function () {
       $('.messages').append(html);
       $('.submit__form__inputArea__text').val('');
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-    });s
-
+    });
+    return false;
   });
 
 });
