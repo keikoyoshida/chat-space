@@ -22,12 +22,15 @@ $(function () {
       `<p class="notice">メッセージを送信しました</p>`
     $('.javascript_flash').append(html);
     $('.notice').fadeIn(500).fadeOut(2000);
+    setTimeout(function(){
+     $('.notice').remove();
+    },2500);
   }
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = window.location.href;
+    var url = $(this).attr('action');
     $.ajax({
       type: 'POST',
       url: url,
