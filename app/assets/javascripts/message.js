@@ -17,6 +17,13 @@ $(function () {
     return html;
   }
 
+  function flash() {
+    var html =
+      `<p class="notice">メッセージを送信しました</p>`
+    $('.javascript_flash').append(html);
+    $('.notice').fadeIn(500).fadeOut(2000);
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -34,6 +41,7 @@ $(function () {
       $('.messages').append(html);
       $('.submit__form__inputArea__text').val('');
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      flash();
     })
     .fail(function(){
       alert('error');
