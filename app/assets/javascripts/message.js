@@ -33,7 +33,9 @@ $(function () {
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.submit__form__inputArea__text').val('');
-    });
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+    });s
+
   });
 
 });
