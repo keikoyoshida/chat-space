@@ -11,12 +11,12 @@
   = render @messages
 .submit
   .submit__form
-    = form_for [@group, @message], multipart: true do |f|
+    = form_for [@group, @message], multipart: true, id: "new_message" do |f|
       .submit__form__inputArea
         = f.text_field :text, class: 'submit__form__inputArea__text', placeholder: "Type a message"
         .submit__form__inputArea__image
           = f.label :image do
             = icon('image')
-            = f.file_field :image
+            = f.file_field :image, class: 'submit__form__inputArea__image__file'
       .submit__form__sendButton
-        = f.submit 'Send'
+        = f.submit 'Send', id: 'sendButton'
