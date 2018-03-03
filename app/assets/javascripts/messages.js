@@ -43,8 +43,11 @@ $(function () {
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.submit__form__inputArea__text').val('');
+      $('.submit__form__inputArea__image__file').val('');
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       flash();
+      // permission of continuous transmission of submit event
+      // $("#sendButton").prop("disabled", false);
     })
     .fail(function(){
       alert('error');
