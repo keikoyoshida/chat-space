@@ -15,6 +15,15 @@ function appendNoUser(user) {
   $("#user-search-result").append(html);
 }
 
+function appendGroupUser(user) {
+  var html =`<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${ user.userId }'>
+              <input name='group[user_ids][]' type='hidden' value='${ user.userId }'>
+              <p class='chat-group-user__name'>${ user.userName }</p>
+              <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+            </div>`
+  $("#group-user").append(html);
+}
+
   $('#user-search-field').on("keyup", function() {
     var input = $(this).val();
     $.ajax({
@@ -24,7 +33,6 @@ function appendNoUser(user) {
       dataType: 'json'
     })
     .done(function(users) {
-      console.log(users);
       $("#user-search-result").empty();
       if (users.length !== 0) {
         users.forEach(function(user){
@@ -38,6 +46,16 @@ function appendNoUser(user) {
     .fail(function() {
       alert('ユーザー検索に失敗しました');
     });
+  });
+
+  $(document).on("click", ".user-search-add", function(){
+    $("#user-search-result").empty();
+    var user = $(this).data();
+    appendGroupUser(user);
+  });
+
+  $(document).on("click", ".user-search-remove", function(){
+    $(this).parent().remove();
   });
 
 });
