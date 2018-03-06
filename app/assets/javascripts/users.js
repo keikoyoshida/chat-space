@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('ready turbolinks:load', function () {
 
   $('#user-search-field').on("keyup", function() {
     var input = $(this).val();
@@ -9,7 +9,6 @@ $(function () {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
       $("#user-search-result").empty();
       if (data.users.length !== 0) {
         data.users.forEach(function(user){
