@@ -8,10 +8,11 @@ $(function () {
       data: { keyword: input },
       dataType: 'json'
     })
-    .done(function(users) {
+    .done(function(data) {
+      console.log(data);
       $("#user-search-result").empty();
-      if (users.length !== 0) {
-        users.forEach(function(user){
+      if (data.users.length !== 0) {
+        data.users.forEach(function(user){
           appendUser(user);
         });
       }
