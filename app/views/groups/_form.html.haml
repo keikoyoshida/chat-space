@@ -25,7 +25,7 @@
       = label_tag "", "チャットメンバー", class: "chat-group-form__label"
     .chat-group-form__field--right
       #group-user
-        %div{class: "chat-group-user clearfix js-chat-member", id: "chat-group-user-<%= current_user.id %>" }
+        .chat-group-user.clearfix.js-chat-member
           = hidden_field_tag 'group[user_ids][]', current_user.id
           %p.chat-group-user__name
             = current_user.name
