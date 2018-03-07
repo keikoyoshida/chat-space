@@ -1,31 +1,4 @@
-$(function () {
-
-  function buildHTML(message){
-    var html = `<div class ="messages__item">
-                  <div class ="userName">
-                    ${message.user_name}
-                  </div>
-                  <div class ="sentTime">
-                    ${message.created_at}
-                  </div>
-                  <div class ="text">
-                    ${message.text}
-                  </div>
-                  <div class ="image">
-                    ${ message.image == null ? "" : '<img src="' + message.image + '">' }
-                  </div>`
-    return html;
-  }
-
-  function flash() {
-    var html =
-      `<p class="notice">メッセージを送信しました</p>`
-    $('.javascript_flash').append(html);
-    $('.notice').fadeIn(500).fadeOut(2000);
-    setTimeout(function(){
-     $('.notice').remove();
-    },2500);
-  }
+$(document).on('ready turbolinks:load', function () {
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -55,26 +28,56 @@ $(function () {
     return false;
   });
 
-  setInterval(function(){
+  var interval = setInterval(function() {
     var url = location.href;
-    $.ajax({
-      type: 'GET',
-      url: url,
-      processData: false,
-      contentType: false,
-      dataType: 'json'
-    })
-    .done(function(data){
-      console.log('a');
-      $('.messages').empty();
-      data.messages.forEach(function(message){
-        var html = buildHTML(message);
-        $('.messages').append(html);
+    console.log(url);
+    if (url.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        type: 'GET',
+        url: url,
+        processData: false,
+        contentType: false,
+        dataType: 'json'
+      })
+      .done(function(data){
+        $('.messages').empty();
+        data.messages.forEach(function(message){
+          var html = buildHTML(message);
+          $('.messages').append(html);
+        });
+      })
+      .fail(function(){
+        alert('error');
       });
-    })
-    .fail(function(){
-      alert('error');
-    });
-  },5000);
+    } else {
+      clearInterval(interval);
+    }}, 5000 );
 
 });
+
+function buildHTML(message){
+  var html = `<div class ="messages__item">
+                <div class ="userName">
+                  ${message.user_name}
+                </div>
+                <div class ="sentTime">
+                  ${message.created_at}
+                </div>
+                <div class ="text">
+                  ${message.text}
+                </div>
+                <div class ="image">
+                  ${ message.image == null ? "" : '<img src="' + message.image + '">' }
+                </div>`
+  return html;
+}
+
+function flash() {
+  var html =
+    `<p class="notice">メッセージを送信しました</p>`
+  $('.javascript_flash').append(html);
+  $('.notice').fadeIn(500).fadeOut(2000);
+  setTimeout(function(){
+   $('.notice').remove();
+  },2500);
+}
