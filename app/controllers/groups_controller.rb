@@ -18,6 +18,9 @@ class GroupsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)

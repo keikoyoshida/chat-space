@@ -6,7 +6,7 @@
     - @group.users.each do |user|
       = user.name
   .groupHeader__groupEdit
-    = link_to 'Edit', ''
+    = link_to 'Edit', edit_group_path(@group)
 .messages
   = render @messages
 .submit
