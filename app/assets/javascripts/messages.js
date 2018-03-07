@@ -55,4 +55,26 @@ $(function () {
     return false;
   });
 
+  setInterval(function(){
+    var url = location.href;
+    $.ajax({
+      type: 'GET',
+      url: url,
+      processData: false,
+      contentType: false,
+      dataType: 'json'
+    })
+    .done(function(data){
+      console.log('a');
+      $('.messages').empty();
+      data.messages.forEach(function(message){
+        var html = buildHTML(message);
+        $('.messages').append(html);
+      });
+    })
+    .fail(function(){
+      alert('error');
+    });
+  },5000);
+
 });
