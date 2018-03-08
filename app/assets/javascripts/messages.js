@@ -1,4 +1,4 @@
-$(document).on('ready turbolinks:load', function () {
+$(document).on('turbolinks:load', function (e) {
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
@@ -29,18 +29,16 @@ $(document).on('ready turbolinks:load', function () {
   });
 
   var interval = setInterval(function() {
-    var url = location.href;
-    console.log(url);
-    if (url.match(/\/groups\/\d+\/messages/)) {
+    var currentUrl = location.href;
+    if (currentUrl.match(/\/groups\/\d+\/messages/)) {
+      var lastMessageId = $('.messages__item').last().data('messageId')
       $.ajax({
         type: 'GET',
-        url: url,
-        processData: false,
-        contentType: false,
+        url: currentUrl,
+        data: { lastMessageId: lastMessageId },
         dataType: 'json'
       })
       .done(function(data){
-        $('.messages').empty();
         data.messages.forEach(function(message){
           var html = buildHTML(message);
           $('.messages').append(html);
@@ -51,12 +49,13 @@ $(document).on('ready turbolinks:load', function () {
       });
     } else {
       clearInterval(interval);
-    }}, 5000 );
+    }
+  }, 5000 );
 
 });
 
 function buildHTML(message){
-  var html = `<div class ="messages__item">
+  var html = `<div class ="messages__item" data-message-id="${message.id}">
                 <div class ="userName">
                   ${message.user_name}
                 </div>
