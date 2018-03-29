@@ -2,7 +2,7 @@
 lock "~> 3.10.1"
 
 set :application, "chat-space"
-set :repo_url, "git@example.com:keikoyoshida/chat-space.git"
+set :repo_url, "git@github.com:keikoyoshida/chat-space.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -44,7 +44,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['/Users/keikoyoshida/.ssh/key_pem.pem']
+                  keys: ['/Users/keikoyoshida/.ssh/key_pair.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
