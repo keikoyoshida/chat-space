@@ -55,25 +55,30 @@ $(document).on('turbolinks:load', function () {
 });
 
 function buildHTML(message){
-  var html = `<div class ="messages__item" data-message-id="${message.id}">
-                <div class ="userName">
-                  ${message.user_name}
-                </div>
-                <div class ="sentTime">
-                  ${message.created_at}
-                </div>
-                <div class ="text">
-                  ${message.text}
-                </div>
-                <div class ="image">
-                  ${ message.image == null ? "" : '<img src="' + message.image + '">' }
-                </div>`
+  var html = '<div class ="messages__item" data-message-id="' + message.id + '">\n'
+             + '<div class ="userName">'
+             + message.user_name
+             + '</div>\n'
+             + '<div class ="sentTime">'
+             + message.created_at
+             + '</div>\n'
+             + '<div class ="text">'
+             + message.text
+             + '</div>\n'
+             + '<div class ="image">'
+             if ( message.image == null ){
+              + ""
+             } else {
+              + '<img src="' + message.image + '">'
+             }
+             // + message.image == null ? "" : '<img src="' + message.image + '">'
+             + '</div>\n';
   return html;
 }
 
 function flash() {
   var html =
-    `<p class="notice">メッセージを送信しました</p>`
+    '<p class="notice">メッセージを送信しました</p>'
   $('.javascript_flash').append(html);
   $('.notice').fadeIn(500).fadeOut(2000);
   setTimeout(function(){
