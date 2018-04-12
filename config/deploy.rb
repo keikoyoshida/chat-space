@@ -58,3 +58,5 @@ namespace :deploy do
 end
 
 set :log_level, :debug
+
+set :linked_files, %w{ config/secrets.yml }
