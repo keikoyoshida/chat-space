@@ -55,7 +55,8 @@ $(document).on('turbolinks:load', function () {
 });
 
 function buildHTML(message){
-  var html = '<div class ="messages__item" data-message-id="' + message.id + '">\n'
+  if ( message.image == null ){
+    var html = '<div class ="messages__item" data-message-id="' + message.id + '">\n'
              + '<div class ="userName">'
              + message.user_name
              + '</div>\n'
@@ -66,13 +67,22 @@ function buildHTML(message){
              + message.text
              + '</div>\n'
              + '<div class ="image">'
-             if ( message.image == null ){
-              + ""
-             } else {
-              + '<img src="' + message.image + '">'
-             }
-             // + message.image == null ? "" : '<img src="' + message.image + '">'
              + '</div>\n';
+  } else {
+    var html = '<div class ="messages__item" data-message-id="' + message.id + '">\n'
+             + '<div class ="userName">'
+             + message.user_name
+             + '</div>\n'
+             + '<div class ="sentTime">'
+             + message.created_at
+             + '</div>\n'
+             + '<div class ="text">'
+             + message.text
+             + '</div>\n'
+             + '<div class ="image">'
+             + '<img src="' + message.image + '">'
+             + '</div>\n';
+  }
   return html;
 }
 
