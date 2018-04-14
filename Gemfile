@@ -82,3 +82,4 @@ group :development, :test do
 end
 
 gem 'fog'
+gem 'fog-aws'
